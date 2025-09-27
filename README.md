@@ -1,4 +1,4 @@
-# 🎯 Automated Document Text Extraction Using Small Language Model (SLM)
+# Automated Document Text Extraction Using Small Language Model (SLM)
 
 [![Python](https://img.shields.io/badge/python-v3.8+-blue.svg)](https://www.python.org/downloads/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-v2.0+-red.svg)](https://pytorch.org/)
@@ -8,7 +8,7 @@
 
 > **Intelligent document processing system that extracts structured information from invoices, forms, and scanned documents using fine-tuned DistilBERT and transfer learning.**
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Installation
 
@@ -52,11 +52,11 @@ python api/app.py
 # Upload documents or enter text for extraction
 ```
 
-## 📋 Project Overview
+## Project Overview
 
 This system combines **OCR technology**, **text preprocessing**, and a **fine-tuned DistilBERT model** to automatically extract structured information from documents. It uses transfer learning to adapt a pretrained transformer for document-specific Named Entity Recognition (NER).
 
-### 🎯 Key Capabilities
+### Key Capabilities
 
 - **Multi-format Support**: PDF, DOCX, PNG, JPG, TIFF, BMP
 - **Dual OCR Engine**: Tesseract + EasyOCR for maximum accuracy
@@ -65,7 +65,7 @@ This system combines **OCR technology**, **text preprocessing**, and a **fine-tu
 - **Web API**: RESTful endpoints with interactive interface
 - **High Accuracy**: Regex validation + ML predictions
 
-## 🏗️ System Architecture
+## System Architecture
 
 ```mermaid
 graph TD
@@ -82,33 +82,33 @@ graph TD
     K --> E
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 small-language-model/
-├── 📂 src/                    # Core source code
-│   ├── 📄 data_preparation.py  # OCR & dataset creation
-│   ├── 📄 model.py             # DistilBERT NER model
-│   ├── 📄 training_pipeline.py # Training orchestration
-│   └── 📄 inference.py         # Document processing
-├── 📂 api/                    # Web API service
-│   └── 📄 app.py              # FastAPI application
-├── 📂 config/                 # Configuration files
-│   └── 📄 settings.py         # Project settings
-├── 📂 data/                   # Data directories
-│   ├── 📂 raw/                # Input documents
-│   └── 📂 processed/          # Processed datasets
-├── 📂 models/                 # Trained models
-├── 📂 results/               # Training results
-│   ├── 📂 plots/             # Training visualizations
-│   └── 📂 metrics/           # Evaluation metrics
-├── 📂 tests/                 # Unit tests
-├── 📄 demo.py               # Interactive demo
-├── 📄 requirements.txt      # Dependencies
-└── 📄 README.md            # This file
+├── src/                    # Core source code
+│   ├── data_preparation.py  # OCR & dataset creation
+│   ├── model.py             # DistilBERT NER model
+│   ├── training_pipeline.py # Training orchestration
+│   └── inference.py         # Document processing
+├── api/                    # Web API service
+│   └── app.py              # FastAPI application
+├── config/                 # Configuration files
+│   └── settings.py         # Project settings
+├── data/                   # Data directories
+│   ├── raw/                # Input documents
+│   └── processed/          # Processed datasets
+├── models/                 # Trained models
+├── results/               # Training results
+│   ├── plots/             # Training visualizations
+│   └── metrics/           # Evaluation metrics
+├── tests/                 # Unit tests
+├── demo.py               # Interactive demo
+├── requirements.txt      # Dependencies
+└── README.md            # This file
 ```
 
-## 💡 Usage Examples
+## Usage Examples
 
 ### Python API
 
@@ -153,7 +153,7 @@ curl -X POST "http://localhost:8000/extract-from-text" \
 4. Click "Extract Information"
 5. View structured results
 
-## 🔧 Configuration
+## Configuration
 
 ### Model Configuration
 
@@ -180,7 +180,7 @@ export TESSERACT_PATH="/usr/bin/tesseract"
 export CUDA_VISIBLE_DEVICES=0
 ```
 
-## 🧪 Testing
+## Testing
 
 ```bash
 # Run all tests
@@ -193,7 +193,7 @@ python tests/test_extraction.py
 python -m pytest tests/ --cov=src --cov-report=html
 ```
 
-## 📊 Performance Metrics
+## Performance Metrics
 
 | Entity Type | Precision | Recall | F1-Score |
 | ----------- | --------- | ------ | -------- |
@@ -204,7 +204,7 @@ python -m pytest tests/ --cov=src --cov-report=html
 | EMAIL       | 0.97      | 0.94   | 0.95     |
 | PHONE       | 0.91      | 0.89   | 0.90     |
 
-## 🎯 Supported Entity Types
+## Supported Entity Types
 
 - **NAME**: Person names (John Doe, Dr. Smith)
 - **DATE**: Dates in various formats (01/15/2025, March 15, 2025)
@@ -214,7 +214,7 @@ python -m pytest tests/ --cov=src --cov-report=html
 - **PHONE**: Phone numbers (555-123-4567, +1-555-123-4567)
 - **EMAIL**: Email addresses (user@domain.com)
 
-## 🔄 Training Your Own Model
+## Training Your Own Model
 
 ### 1. Prepare Your Data
 
@@ -247,7 +247,7 @@ Training automatically generates:
 - Metrics: `results/metrics/evaluation_results.json`
 - Model checkpoints: `models/document_ner_model/`
 
-## 🚀 Deployment
+## Deployment
 
 ### Docker Deployment
 
@@ -273,7 +273,7 @@ CMD ["python", "api/app.py"]
 - **Google Cloud**: Use Cloud Run or Compute Engine
 - **Azure**: Deploy with Container Instances
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
@@ -281,23 +281,23 @@ CMD ["python", "api/app.py"]
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - [Hugging Face Transformers](https://huggingface.co/transformers/) for the DistilBERT model
 - [Tesseract OCR](https://github.com/tesseract-ocr/tesseract) for optical character recognition
 - [EasyOCR](https://github.com/JaidedAI/EasyOCR) for additional OCR capabilities
 - [FastAPI](https://fastapi.tiangolo.com/) for the web framework
 
-## 📞 Support
+## Support
 
-- 📧 Email: your-email@domain.com
-- 💬 Issues: [GitHub Issues](https://github.com/your-username/small-language-model/issues)
-- 📖 Documentation: [Project Wiki](https://github.com/your-username/small-language-model/wiki)
+- Email: your-email@domain.com
+- Issues: [GitHub Issues](https://github.com/your-username/small-language-model/issues)
+- Documentation: [Project Wiki](https://github.com/your-username/small-language-model/wiki)
 
 ---
 
-⭐ **Star this repository if it helped you!** ⭐
+**Star this repository if it helped you!**
