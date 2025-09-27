@@ -147,6 +147,8 @@ curl -X POST "http://localhost:8000/extract-from-text" \
 
 ### Web Interface
 
+![Document Text Extraction Web Interface](assets/Screenshot%202025-09-27%20184723.png)
+
 1. Go to `http://localhost:8000`
 2. Choose "Upload File" or "Enter Text" tab
 3. Upload document or paste text
