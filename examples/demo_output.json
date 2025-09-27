@@ -1,0 +1,57 @@
+{
+  "document_type": "invoice",
+  "extraction_timestamp": "2025-09-27T10:43:08.504070",
+  "entities_by_type": {
+    "INVOICE_NUMBER": [
+      "Invoice",
+      "-2024-001"
+    ],
+    "AMOUNT": [
+      "2,500.00",
+      "1,500.00",
+      "500.00",
+      "4,500.00",
+      "360.00",
+      "4,860.00"
+    ],
+    "DATE": [
+      "January 15, 2024",
+      "February 15, 2024"
+    ],
+    "EMAIL": [
+      "john.smith@acme.com",
+      "billing@company.com"
+    ],
+    "PHONE": [
+      "(555) 123-4567"
+    ],
+    "COMPANY": [
+      "Acme Corporation"
+    ],
+    "PERSON": [
+      "John Smith"
+    ]
+  },
+  "key_information": {
+    "invoice_number": "Invoice",
+    "total_amount": "$4,860.00",
+    "invoice_date": "January 15, 2024",
+    "customer_name": "John Smith",
+    "customer_company": "Acme Corporation",
+    "contact_email": [
+      "john.smith@acme.com",
+      "billing@company.com"
+    ],
+    "phone_number": "(555) 123-4567"
+  },
+  "confidence_scores": {
+    "overall": 0.95,
+    "ocr_quality": 0.98,
+    "entity_extraction": 0.92
+  },
+  "processing_metadata": {
+    "text_length": 521,
+    "total_entities": 15,
+    "entity_types_found": 7
+  }
+}
