@@ -1,0 +1,27 @@
+# Example Document Text
+
+INVOICE
+
+Invoice Number: INV-2024-001
+Date: January 15, 2024
+Due Date: February 15, 2024
+
+Bill To:
+John Smith
+Acme Corporation  
+123 Business Ave
+New York, NY 10001
+Phone: (555) 123-4567
+Email: john.smith@acme.com
+
+Services Provided:
+- Web Development: $2,500.00
+- Consulting: $1,500.00
+- Support: $500.00
+
+Subtotal: $4,500.00
+Tax (8%): $360.00
+Total Amount: $4,860.00
+
+Payment Terms: Net 30 days
+Contact: billing@company.com

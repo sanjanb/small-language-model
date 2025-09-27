@@ -1,0 +1,28 @@
+ocr:
+  engine: "tesseract"  # or "easyocr"
+  tesseract_config: "--oem 3 --psm 6"
+  language: "eng"
+  confidence_threshold: 0.6
+
+preprocessing:
+  resize_factor: 2.0
+  apply_denoising: true
+  enhance_contrast: true
+  threshold_method: "adaptive"  # or "otsu", "simple"
+
+ner:
+  model_name: "en_core_web_sm"
+  custom_entities:
+    - "INVOICE_NUMBER"
+    - "AMOUNT"
+    - "DATE"
+    - "VENDOR"
+    - "CUSTOMER"
+    - "EMAIL"
+    - "PHONE"
+  confidence_threshold: 0.8
+
+output:
+  format: "json"  # or "csv"
+  structured: true
+  include_confidence: true
