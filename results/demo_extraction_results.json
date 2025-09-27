@@ -1,0 +1,284 @@
+[
+  {
+    "document_name": "Invoice Example 1",
+    "original_text": "Invoice sent to Robert White on 15/09/2025 Invoice No: INV-1024 Amount: $1,250.00 Phone: (555) 123-4567",
+    "entities": [
+      {
+        "entity": "NAME",
+        "text": "Invoice sent",
+        "start": 0,
+        "end": 12,
+        "confidence": 0.8
+      },
+      {
+        "entity": "NAME",
+        "text": "to Robert",
+        "start": 13,
+        "end": 22,
+        "confidence": 0.8
+      },
+      {
+        "entity": "NAME",
+        "text": "White on",
+        "start": 23,
+        "end": 31,
+        "confidence": 0.8
+      },
+      {
+        "entity": "NAME",
+        "text": "Invoice No",
+        "start": 43,
+        "end": 53,
+        "confidence": 0.8
+      },
+      {
+        "entity": "DATE",
+        "text": "15/09/2025",
+        "start": 32,
+        "end": 42,
+        "confidence": 0.85
+      },
+      {
+        "entity": "INVOICE_NO",
+        "text": "INV-1024",
+        "start": 43,
+        "end": 63,
+        "confidence": 0.9
+      },
+      {
+        "entity": "AMOUNT",
+        "text": "$1,250.00",
+        "start": 72,
+        "end": 81,
+        "confidence": 0.85
+      },
+      {
+        "entity": "PHONE",
+        "text": "(555) 123-4567",
+        "start": 89,
+        "end": 103,
+        "confidence": 0.9
+      }
+    ],
+    "structured_data": {
+      "Name": "Invoice Sent",
+      "Date": "15/09/2025",
+      "InvoiceNo": "INV-1024",
+      "Amount": "$1,250.00",
+      "Phone": "(555) 123-4567"
+    },
+    "processing_timestamp": "2025-09-27T18:26:31.996468",
+    "total_entities_found": 8,
+    "entity_types_found": [
+      "AMOUNT",
+      "NAME",
+      "DATE",
+      "INVOICE_NO",
+      "PHONE"
+    ]
+  },
+  {
+    "document_name": "Invoice Example 2",
+    "original_text": "Bill for Dr. Sarah Johnson dated March 10, 2025. Invoice Number: BL-2045. Total: $2,300.50 Email: sarah.johnson@email.com",
+    "entities": [
+      {
+        "entity": "NAME",
+        "text": "Sarah Johnson",
+        "start": 9,
+        "end": 26,
+        "confidence": 0.8
+      },
+      {
+        "entity": "NAME",
+        "text": "Bill for",
+        "start": 0,
+        "end": 8,
+        "confidence": 0.8
+      },
+      {
+        "entity": "NAME",
+        "text": "dated March",
+        "start": 27,
+        "end": 38,
+        "confidence": 0.8
+      },
+      {
+        "entity": "NAME",
+        "text": "Invoice Number",
+        "start": 49,
+        "end": 63,
+        "confidence": 0.8
+      },
+      {
+        "entity": "DATE",
+        "text": "March 10, 2025",
+        "start": 33,
+        "end": 47,
+        "confidence": 0.85
+      },
+      {
+        "entity": "INVOICE_NO",
+        "text": "BL-2045",
+        "start": 49,
+        "end": 72,
+        "confidence": 0.9
+      },
+      {
+        "entity": "AMOUNT",
+        "text": "$2,300.50",
+        "start": 81,
+        "end": 90,
+        "confidence": 0.85
+      },
+      {
+        "entity": "EMAIL",
+        "text": "sarah.johnson@email.com",
+        "start": 98,
+        "end": 121,
+        "confidence": 0.95
+      }
+    ],
+    "structured_data": {
+      "Name": "Sarah Johnson",
+      "Date": "March 10, 2025",
+      "InvoiceNo": "BL-2045",
+      "Amount": "$2,300.50",
+      "Email": "sarah.johnson@email.com"
+    },
+    "processing_timestamp": "2025-09-27T18:26:31.997340",
+    "total_entities_found": 8,
+    "entity_types_found": [
+      "AMOUNT",
+      "NAME",
+      "EMAIL",
+      "DATE",
+      "INVOICE_NO"
+    ]
+  },
+  {
+    "document_name": "Receipt Example",
+    "original_text": "Receipt for Michael Brown Invoice: REC-3089 Date: 2025-04-22 Amount: $890.75 Contact: +1-555-987-6543",
+    "entities": [
+      {
+        "entity": "NAME",
+        "text": "Receipt for",
+        "start": 0,
+        "end": 11,
+        "confidence": 0.8
+      },
+      {
+        "entity": "NAME",
+        "text": "Michael Brown",
+        "start": 12,
+        "end": 25,
+        "confidence": 0.8
+      },
+      {
+        "entity": "DATE",
+        "text": "2025-04-22",
+        "start": 50,
+        "end": 60,
+        "confidence": 0.85
+      },
+      {
+        "entity": "INVOICE_NO",
+        "text": "REC-3089",
+        "start": 35,
+        "end": 43,
+        "confidence": 0.9
+      },
+      {
+        "entity": "AMOUNT",
+        "text": "$890.75",
+        "start": 69,
+        "end": 76,
+        "confidence": 0.85
+      },
+      {
+        "entity": "PHONE",
+        "text": "+1-555-987-6543",
+        "start": 86,
+        "end": 101,
+        "confidence": 0.9
+      }
+    ],
+    "structured_data": {
+      "Name": "Receipt For",
+      "Date": "2025-04-22",
+      "InvoiceNo": "REC-3089",
+      "Amount": "$890.75",
+      "Phone": "+1 (555) 987-6543"
+    },
+    "processing_timestamp": "2025-09-27T18:26:31.998731",
+    "total_entities_found": 6,
+    "entity_types_found": [
+      "AMOUNT",
+      "NAME",
+      "DATE",
+      "INVOICE_NO",
+      "PHONE"
+    ]
+  },
+  {
+    "document_name": "Business Document",
+    "original_text": "Ms. Emma Wilson 456 Oak Street Payment due: January 15, 2025 Reference: INV-4567 Total: $1,750.25",
+    "entities": [
+      {
+        "entity": "NAME",
+        "text": "Emma Wilson",
+        "start": 0,
+        "end": 15,
+        "confidence": 0.8
+      },
+      {
+        "entity": "NAME",
+        "text": "Oak Street",
+        "start": 20,
+        "end": 30,
+        "confidence": 0.8
+      },
+      {
+        "entity": "NAME",
+        "text": "Payment due",
+        "start": 31,
+        "end": 42,
+        "confidence": 0.8
+      },
+      {
+        "entity": "DATE",
+        "text": "January 15, 2025",
+        "start": 44,
+        "end": 60,
+        "confidence": 0.85
+      },
+      {
+        "entity": "INVOICE_NO",
+        "text": "INV-4567",
+        "start": 72,
+        "end": 80,
+        "confidence": 0.9
+      },
+      {
+        "entity": "AMOUNT",
+        "text": "$1,750.25",
+        "start": 88,
+        "end": 97,
+        "confidence": 0.85
+      }
+    ],
+    "structured_data": {
+      "Name": "Emma Wilson",
+      "Date": "January 15, 2025",
+      "InvoiceNo": "INV-4567",
+      "Amount": "$1,750.25"
+    },
+    "processing_timestamp": "2025-09-27T18:26:32.000279",
+    "total_entities_found": 6,
+    "entity_types_found": [
+      "AMOUNT",
+      "INVOICE_NO",
+      "DATE",
+      "NAME"
+    ]
+  }
+]
