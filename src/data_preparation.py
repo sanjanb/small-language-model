@@ -279,12 +279,12 @@ class NERDatasetCreator:
                         example = self.create_training_example(text)
                         example['source_file'] = str(file_path)
                         dataset.append(example)
-                        print(f"✓ Processed {file_path.name}")
+                        print(f"Processed {file_path.name}")
                     else:
-                        print(f"⚠ No text extracted from {file_path.name}")
+                        print(f"No text extracted from {file_path.name}")
                         
                 except Exception as e:
-                    print(f"✗ Error processing {file_path.name}: {e}")
+                    print(f"Error processing {file_path.name}: {e}")
         
         if not dataset:
             print("No documents processed. Creating sample dataset.")

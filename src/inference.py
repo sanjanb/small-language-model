@@ -58,7 +58,7 @@ class DocumentInference:
                 config_dict = json.load(f)
                 config = ModelConfig(**config_dict)
         else:
-            print("⚠️ No training config found. Using default configuration.")
+            print("No training config found. Using default configuration.")
             config = ModelConfig()
         
         return config
@@ -73,7 +73,7 @@ class DocumentInference:
             # Load the trained weights
             self.trainer.load_model(self.model_path)
             
-            print(f"✅ Model loaded successfully from {self.model_path}")
+            print(f"Model loaded successfully from {self.model_path}")
             
         except Exception as e:
             raise Exception(f"Failed to load model from {self.model_path}: {e}")
@@ -297,7 +297,7 @@ class DocumentInference:
                 'model_path': self.model_path
             }
             
-            print(f"✅ Successfully processed {file_path}")
+            print(f"Successfully processed {file_path}")
             print(f"   Found {len(entities)} entities")
             print(f"   Structured fields: {list(structured_data.keys())}")
             
@@ -309,7 +309,7 @@ class DocumentInference:
                 'file_path': file_path,
                 'processing_timestamp': datetime.now().isoformat()
             }
-            print(f"❌ Error processing {file_path}: {e}")
+            print(f"Error processing {file_path}: {e}")
             return error_result
     
     def process_text_directly(self, text: str) -> Dict[str, Any]:
@@ -336,7 +336,7 @@ class DocumentInference:
                 'model_path': self.model_path
             }
             
-            print(f"✅ Successfully processed text")
+            print(f"Successfully processed text")
             print(f"   Found {len(entities)} entities")
             print(f"   Structured fields: {list(structured_data.keys())}")
             
@@ -348,7 +348,7 @@ class DocumentInference:
                 'original_text': text,
                 'processing_timestamp': datetime.now().isoformat()
             }
-            print(f"❌ Error processing text: {e}")
+            print(f"Error processing text: {e}")
             return error_result
     
     def batch_process_documents(self, file_paths: List[str]) -> List[Dict[str, Any]]:
@@ -361,7 +361,7 @@ class DocumentInference:
             result = self.process_document(file_path)
             results.append(result)
         
-        print(f"\n✅ Batch processing completed!")
+        print(f"\nBatch processing completed!")
         print(f"   Successfully processed: {sum(1 for r in results if 'error' not in r)}")
         print(f"   Errors: {sum(1 for r in results if 'error' in r)}")
         
@@ -375,7 +375,7 @@ class DocumentInference:
         with open(output_path, 'w', encoding='utf-8') as f:
             json.dump(results, f, indent=2, ensure_ascii=False)
         
-        print(f"✅ Results saved to: {output_path}")
+        print(f"Results saved to: {output_path}")
 
 
 def create_demo_inference(model_path: str = "models/document_ner_model") -> DocumentInference:
@@ -384,14 +384,14 @@ def create_demo_inference(model_path: str = "models/document_ner_model") -> Docu
         inference = DocumentInference(model_path)
         return inference
     except Exception as e:
-        print(f"❌ Failed to create inference pipeline: {e}")
-        print("💡 Make sure you have trained the model first by running training_pipeline.py")
+        print(f"Failed to create inference pipeline: {e}")
+        print("Make sure you have trained the model first by running training_pipeline.py")
         raise
 
 
 def demo_text_extraction():
     """Demonstrate text extraction with sample texts."""
-    print("🎯 DOCUMENT TEXT EXTRACTION - INFERENCE DEMO")
+    print("DOCUMENT TEXT EXTRACTION - INFERENCE DEMO")
     print("=" * 60)
     
     # Sample texts for demonstration
@@ -407,7 +407,7 @@ def demo_text_extraction():
         
         results = []
         for i, text in enumerate(sample_texts):
-            print(f"\n📄 Processing Sample Text {i+1}:")
+            print(f"\nProcessing Sample Text {i+1}:")
             print("-" * 40)
             print(f"Text: {text}")
             
@@ -422,10 +422,10 @@ def demo_text_extraction():
         # Save results
         inference.save_results(results, "results/demo_extraction_results.json")
         
-        print("\n🎉 Demo completed successfully!")
+        print("\nDemo completed successfully!")
         
     except Exception as e:
-        print(f"❌ Demo failed: {e}")
+        print(f"Demo failed: {e}")
 
 
 def main():

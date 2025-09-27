@@ -66,9 +66,9 @@ async def startup_event():
     """Initialize the model on startup."""
     try:
         get_inference_pipeline()
-        print("✅ Model loaded successfully on startup")
+        print("Model loaded successfully on startup")
     except Exception as e:
-        print(f"⚠️ Failed to load model on startup: {e}")
+        print(f"Failed to load model on startup: {e}")
         print("Model will be loaded on first request")
 
 
@@ -179,24 +179,24 @@ async def root():
     <body>
         <div class="container">
             <div class="header">
-                <h1>🎯 Document Text Extraction</h1>
+                <h1>Document Text Extraction</h1>
                 <p>Extract structured information from documents using AI</p>
             </div>
             
             <div class="tab-container">
                 <div class="tabs">
-                    <div class="tab active" onclick="showTab('file')">📄 Upload File</div>
-                    <div class="tab" onclick="showTab('text')">✏️ Enter Text</div>
+                    <div class="tab active" onclick="showTab('file')">Upload File</div>
+                    <div class="tab" onclick="showTab('text')">Enter Text</div>
                 </div>
                 
                 <div id="file-tab" class="tab-content active">
                     <form id="uploadForm" enctype="multipart/form-data">
                         <div class="upload-area">
-                            <p>📁 Choose a document to extract information</p>
+                            <p>Choose a document to extract information</p>
                             <p><small>Supported: PDF, DOCX, Images (PNG, JPG, etc.)</small></p>
                             <input type="file" id="fileInput" name="file" accept=".pdf,.docx,.png,.jpg,.jpeg,.tiff,.bmp" style="margin: 10px 0;">
                             <br>
-                            <button type="submit" class="btn">🚀 Extract Information</button>
+                            <button type="submit" class="btn">Extract Information</button>
                         </div>
                     </form>
                 </div>
@@ -206,13 +206,13 @@ async def root():
                         <p>Enter text directly for information extraction:</p>
                         <textarea id="textInput" class="text-input" placeholder="Enter document text here, e.g.:&#10;Invoice sent to John Doe on 01/15/2025&#10;Invoice No: INV-1001&#10;Amount: $1,500.00"></textarea>
                         <br><br>
-                        <button type="submit" class="btn">🔍 Extract from Text</button>
+                        <button type="submit" class="btn">Extract from Text</button>
                     </form>
                 </div>
             </div>
             
             <div id="result" class="result" style="display: none;">
-                <h3>📊 Extraction Results</h3>
+                <h3>Extraction Results</h3>
                 <div id="resultContent"></div>
             </div>
         </div>
@@ -250,7 +250,7 @@ async def root():
                 formData.append('file', fileInput.files[0]);
                 
                 try {
-                    showResult('⏳ Processing document, please wait...');
+                    showResult('Processing document, please wait...');
                     
                     const response = await fetch('/extract-from-file', {
                         method: 'POST',
@@ -261,7 +261,7 @@ async def root():
                     displayResult(result);
                     
                 } catch (error) {
-                    showResult('❌ Error: ' + error.message);
+                    showResult('Error: ' + error.message);
                 }
             });
             
@@ -276,7 +276,7 @@ async def root():
                 }
                 
                 try {
-                    showResult('⏳ Processing text, please wait...');
+                    showResult('Processing text, please wait...');
                     
                     const response = await fetch('/extract-from-text', {
                         method: 'POST',
@@ -290,7 +290,7 @@ async def root():
                     displayResult(result);
                     
                 } catch (error) {
-                    showResult('❌ Error: ' + error.message);
+                    showResult('Error: ' + error.message);
                 }
             });
             
@@ -305,11 +305,11 @@ async def root():
                 let html = '';
                 
                 if (result.error) {
-                    html = `<div style="color: red;">❌ Error: ${result.error}</div>`;
+                    html = `<div style="color: red;">Error: ${result.error}</div>`;
                 } else {
                     // Show structured data
                     if (result.structured_data && Object.keys(result.structured_data).length > 0) {
-                        html += '<h4>✅ Extracted Information:</h4>';
+                        html += '<h4>Extracted Information:</h4>';
                         html += '<table style="width: 100%; border-collapse: collapse; margin: 10px 0;">';
                         html += '<tr style="background-color: #f8f9fa;"><th style="padding: 8px; border: 1px solid #dee2e6; text-align: left;">Field</th><th style="padding: 8px; border: 1px solid #dee2e6; text-align: left;">Value</th></tr>';
                         
@@ -318,12 +318,12 @@ async def root():
                         }
                         html += '</table>';
                     } else {
-                        html += '<div style="color: orange;">⚠️ No structured information found in the document.</div>';
+                        html += '<div style="color: orange;">No structured information found in the document.</div>';
                     }
                     
                     // Show entities
                     if (result.entities && result.entities.length > 0) {
-                        html += '<h4>🏷️ Detected Entities:</h4>';
+                        html += '<h4>Detected Entities:</h4>';
                         html += '<div style="margin: 10px 0;">';
                         result.entities.forEach(entity => {
                             const confidence = Math.round(entity.confidence * 100);
@@ -334,7 +334,7 @@ async def root():
                     }
                     
                     // Show raw JSON
-                    html += '<h4>📋 Full Response:</h4>';
+                    html += '<h4>Full Response:</h4>';
                     html += `<div class="json-output">${JSON.stringify(result, null, 2)}</div>`;
                 }
                 
@@ -452,11 +452,11 @@ async def get_model_info():
 
 def main():
     """Run the FastAPI server."""
-    print("🚀 Starting Document Text Extraction API Server...")
-    print("📍 Server will be available at: http://localhost:8000")
-    print("📄 Web interface: http://localhost:8000")
-    print("📋 API docs: http://localhost:8000/docs")
-    print("❤️ Health check: http://localhost:8000/health")
+    print("Starting Document Text Extraction API Server...")
+    print("Server will be available at: http://localhost:8000")
+    print("Web interface: http://localhost:8000")
+    print("API docs: http://localhost:8000/docs")
+    print("Health check: http://localhost:8000/health")
     
     uvicorn.run(
         "api.app:app",

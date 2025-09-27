@@ -2,7 +2,7 @@
 
 [![Python](https://img.shields.io/badge/python-v3.8+-blue.svg)](https://www.python.org/downloads/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-v2.0+-red.svg)](https://pytorch.org/)
-[![Transformers](https://img.shields.io/badge/🤗%20Transformers-v4.30+-yellow.svg)](https://huggingface.co/transformers/)
+[![Transformers](https://img.shields.io/badge/Transformers-v4.30+-yellow.svg)](https://huggingface.co/transformers/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-v0.100+-green.svg)](https://fastapi.tiangolo.com/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 

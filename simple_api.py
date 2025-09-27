@@ -454,17 +454,17 @@ file: [uploaded file]</pre>
                     const resultsDiv = document.getElementById('results');
                     
                     if (result.status !== 'success') {
-                        resultsDiv.innerHTML = '<div class="results"><h3>❌ Error</h3><p>' + result.message + '</p></div>';
+                        resultsDiv.innerHTML = '<div class="results"><h3>Error</h3><p>' + result.message + '</p></div>';
                         return;
                     }
                     
                     const data = result.data;
                     let html = '<div class="results">';
-                    html += '<h3>✅ Extraction Results</h3>';
+                    html += '<h3>Extraction Results</h3>';
                     html += '<p><strong>Found:</strong> ' + data.total_entities_found + ' entities of ' + data.entity_types_found.length + ' types</p>';
                     
                     // Show entities
-                    html += '<h4>🏷️ Detected Entities:</h4>';
+                    html += '<h4>Detected Entities:</h4>';
                     data.entities.forEach(entity => {
                         html += '<span class="entity ' + entity.entity + '">' + entity.entity + ': ' + entity.text + ' (' + Math.round(entity.confidence * 100) + '%)</span> ';
                     });
@@ -472,7 +472,7 @@ file: [uploaded file]</pre>
                     // Show structured data
                     if (Object.keys(data.structured_data).length > 0) {
                         html += '<div class="structured-data">';
-                        html += '<h4>📊 Structured Information:</h4>';
+                        html += '<h4>Structured Information:</h4>';
                         html += '<ul>';
                         for (const [key, value] of Object.entries(data.structured_data)) {
                             html += '<li><strong>' + key + ':</strong> ' + value + '</li>';
@@ -531,15 +531,15 @@ file: [uploaded file]</pre>
 def main():
     """Main function to run the API server"""
     if not HAS_FASTAPI:
-        print("❌ FastAPI dependencies not installed.")
+        print("FastAPI dependencies not installed.")
         print("📦 Install with: pip install fastapi uvicorn python-multipart")
         return
     
-    print("🚀 Starting Simple Document Text Extraction API...")
-    print("📍 Access the web interface at: http://localhost:8001")
-    print("📖 API documentation at: http://localhost:8001/docs")
-    print("🔧 Health check at: http://localhost:8001/health")
-    print("\n⚡ Server starting...")
+    print("Starting Simple Document Text Extraction API...")
+    print("Access the web interface at: http://localhost:8001")
+    print("API documentation at: http://localhost:8001/docs")
+    print("Health check at: http://localhost:8001/health")
+    print("\nServer starting...")
     
     app = create_app()
     uvicorn.run(app, host="0.0.0.0", port=8001, log_level="info")

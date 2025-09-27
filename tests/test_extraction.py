@@ -243,7 +243,7 @@ class TestEndToEnd(unittest.TestCase):
 
 def run_tests():
     """Run all tests."""
-    print("🧪 Running Document Text Extraction Tests")
+    print("Running Document Text Extraction Tests")
     print("=" * 50)
     
     # Create test suite
@@ -269,9 +269,9 @@ def run_tests():
     
     # Print summary
     if result.wasSuccessful():
-        print(f"\n✅ All tests passed! ({result.testsRun} tests)")
+        print(f"\nAll tests passed! ({result.testsRun} tests)")
     else:
-        print(f"\n❌ {len(result.failures)} failures, {len(result.errors)} errors")
+        print(f"\n{len(result.failures)} failures, {len(result.errors)} errors")
         
         if result.failures:
             print("\nFailures:")

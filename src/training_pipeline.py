@@ -67,9 +67,9 @@ class TrainingPipeline:
         output_path = "data/processed/ner_dataset.json"
         dataset_creator.save_dataset(dataset, output_path)
         
-        print(f"✓ Data preparation completed!")
-        print(f"✓ Dataset saved to: {output_path}")
-        print(f"✓ Total examples: {len(dataset)}")
+        print(f"Data preparation completed!")
+        print(f"Dataset saved to: {output_path}")
+        print(f"Total examples: {len(dataset)}")
         
         return dataset
     
@@ -81,10 +81,10 @@ class TrainingPipeline:
         
         self.model, self.trainer = create_model_and_trainer(self.config)
         
-        print(f"✓ Model initialized: {self.config.model_name}")
-        print(f"✓ Model parameters: {sum(p.numel() for p in self.model.parameters()):,}")
-        print(f"✓ Device: {self.trainer.device}")
-        print(f"✓ Number of entity labels: {self.config.num_labels}")
+        print(f"Model initialized: {self.config.model_name}")
+        print(f"Model parameters: {sum(p.numel() for p in self.model.parameters()):,}")
+        print(f"Device: {self.trainer.device}")
+        print(f"Number of entity labels: {self.config.num_labels}")
         
         return self.model, self.trainer
     
@@ -98,16 +98,16 @@ class TrainingPipeline:
         print("Preparing training and validation data...")
         train_dataloader, val_dataloader = self.trainer.prepare_dataloaders(dataset)
         
-        print(f"✓ Training samples: {len(train_dataloader.dataset)}")
-        print(f"✓ Validation samples: {len(val_dataloader.dataset)}")
-        print(f"✓ Training batches: {len(train_dataloader)}")
-        print(f"✓ Validation batches: {len(val_dataloader)}")
+        print(f"Training samples: {len(train_dataloader.dataset)}")
+        print(f"Validation samples: {len(val_dataloader.dataset)}")
+        print(f"Training batches: {len(train_dataloader)}")
+        print(f"Validation batches: {len(val_dataloader)}")
         
         # Start training
         print(f"\nStarting training for {self.config.num_epochs} epochs...")
         self.history = self.trainer.train(train_dataloader, val_dataloader)
         
-        print(f"✓ Training completed!")
+        print(f"Training completed!")
         return self.history
     
     def evaluate_model(self, dataset: List[Dict]) -> Dict:
@@ -127,8 +127,8 @@ class TrainingPipeline:
         with open(results_path, 'w') as f:
             json.dump(evaluation_results, f, indent=2)
         
-        print(f"✓ Evaluation completed!")
-        print(f"✓ Results saved to: {results_path}")
+        print(f"Evaluation completed!")
+        print(f"Results saved to: {results_path}")
         
         return evaluation_results
     
@@ -240,7 +240,7 @@ class TrainingPipeline:
         plt.savefig(plot_path, dpi=300, bbox_inches='tight')
         plt.close()
         
-        print(f"✓ Training history plot saved to: {plot_path}")
+        print(f"Training history plot saved to: {plot_path}")
     
     def save_model(self, model_name: str = "document_ner_model"):
         """Save the trained model."""
@@ -256,15 +256,15 @@ class TrainingPipeline:
         with open(history_path, 'w') as f:
             json.dump(self.history, f, indent=2)
         
-        print(f"✓ Model saved to: {save_path}")
-        print(f"✓ Training history saved to: {history_path}")
+        print(f"Model saved to: {save_path}")
+        print(f"Training history saved to: {history_path}")
         
         return save_path
     
     def run_complete_pipeline(self, data_path: Optional[str] = None, 
                             model_name: str = "document_ner_model") -> str:
         """Run the complete training pipeline."""
-        print("🚀 STARTING COMPLETE TRAINING PIPELINE")
+        print("STARTING COMPLETE TRAINING PIPELINE")
         print("=" * 80)
         
         try:
@@ -286,17 +286,17 @@ class TrainingPipeline:
             # Step 6: Save model
             model_path = self.save_model(model_name)
             
-            print("\n" + "🎉" * 20)
+            print("\n" + "=" * 20)
             print("TRAINING PIPELINE COMPLETED SUCCESSFULLY!")
-            print("🎉" * 20)
-            print(f"✅ Model saved to: {model_path}")
-            print(f"✅ Training completed in {self.config.num_epochs} epochs")
-            print(f"✅ Final validation accuracy: {self.history['val_accuracy'][-1]:.4f}")
+            print("=" * 20)
+            print(f"Model saved to: {model_path}")
+            print(f"Training completed in {self.config.num_epochs} epochs")
+            print(f"Final validation accuracy: {self.history['val_accuracy'][-1]:.4f}")
             
             return model_path
             
         except Exception as e:
-            print(f"\n❌ Error in training pipeline: {e}")
+            print(f"\nError in training pipeline: {e}")
             raise
 
 
@@ -334,7 +334,7 @@ def main():
     # For demonstration, we'll use sample data
     model_path = pipeline.run_complete_pipeline()
     
-    print(f"\n🎯 Training completed! Model saved to: {model_path}")
+    print(f"\nTraining completed! Model saved to: {model_path}")
     print("You can now use this model for document text extraction!")
 
 

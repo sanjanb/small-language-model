@@ -6,9 +6,12 @@ Demonstrates the complete workflow from training to inference.
 import os
 import sys
 from pathlib import Path
-import json
-
-# Add src to path for imports
+import jso                    print(f"  {entity['entity']}: '{entity['text']}' ({confidence}%)")
+        else:
+            print(f"Error: {result['error']}")
+    
+    except Exception as e:
+        print(f"Failed to process text: {e}") Add src to path for imports
 sys.path.append(str(Path(__file__).parent))
 
 from src.data_preparation import DocumentProcessor, NERDatasetCreator
@@ -18,7 +21,7 @@ from src.inference import DocumentInference
 
 def run_quick_demo():
     """Run a quick demonstration of the text extraction system."""
-    print("🎯 DOCUMENT TEXT EXTRACTION - QUICK DEMO")
+    print("DOCUMENT TEXT EXTRACTION - QUICK DEMO")
     print("=" * 60)
     
     # Sample documents for demonstration
@@ -37,14 +40,14 @@ def run_quick_demo():
         }
     ]
     
-    print("\n📄 Sample Documents:")
+    print("\nSample Documents:")
     for i, doc in enumerate(demo_texts, 1):
         print(f"{i}. {doc['name']}: {doc['text'][:60]}...")
     
     # Check if model exists
     model_path = "models/document_ner_model"
     if not Path(model_path).exists():
-        print(f"\n🔧 Model not found at {model_path}")
+        print(f"\nModel not found at {model_path}")
         print("Training a new model first...")
         
         # Train model
@@ -55,23 +58,23 @@ def run_quick_demo():
         pipeline = TrainingPipeline(config)
         model_path = pipeline.run_complete_pipeline()
         
-        print(f"✅ Model trained and saved to {model_path}")
+        print(f"Model trained and saved to {model_path}")
     
     # Load inference pipeline
-    print(f"\n🔍 Loading inference pipeline from {model_path}")
+    print(f"\nLoading inference pipeline from {model_path}")
     try:
         inference = DocumentInference(model_path)
-        print("✅ Inference pipeline loaded successfully")
+        print("Inference pipeline loaded successfully")
     except Exception as e:
-        print(f"❌ Failed to load inference pipeline: {e}")
+        print(f"Failed to load inference pipeline: {e}")
         return
     
     # Process demo texts
-    print(f"\n🚀 Processing {len(demo_texts)} demo documents...")
+    print(f"\nProcessing {len(demo_texts)} demo documents...")
     results = []
     
     for i, doc in enumerate(demo_texts, 1):
-        print(f"\n📋 Processing Document {i}: {doc['name']}")
+        print(f"\nProcessing Document {i}: {doc['name']}")
         print("-" * 50)
         print(f"Text: {doc['text']}")
         
@@ -102,7 +105,7 @@ def run_quick_demo():
                     confidence = int(entity['confidence'] * 100)
                     print(f"   {entity['entity']}: '{entity['text']}' ({confidence}%)")
         else:
-            print(f"❌ Error: {result['error']}")
+            print(f"Error: {result['error']}")
     
     # Save results
     output_path = "results/demo_results.json"
@@ -110,20 +113,20 @@ def run_quick_demo():
     with open(output_path, 'w', encoding='utf-8') as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
     
-    print(f"\n💾 Demo results saved to: {output_path}")
+    print(f"\nDemo results saved to: {output_path}")
     
     # Summary
     successful_extractions = sum(1 for r in results if 'error' not in r['result'])
     total_entities = sum(len(r['result'].get('entities', [])) for r in results if 'error' not in r['result'])
     total_structured_fields = sum(len(r['result'].get('structured_data', {})) for r in results if 'error' not in r['result'])
     
-    print(f"\n📈 Demo Summary:")
+    print(f"\nDemo Summary:")
     print(f"   Successfully processed: {successful_extractions}/{len(demo_texts)} documents")
     print(f"   Total entities found: {total_entities}")
     print(f"   Total structured fields: {total_structured_fields}")
     
-    print(f"\n🎉 Demo completed successfully!")
-    print(f"💡 You can now:")
+    print(f"\nDemo completed successfully!")
+    print(f"You can now:")
     print(f"   - Run the web API: python api/app.py")
     print(f"   - Process your own documents using inference.py")
     print(f"   - Retrain with your data using training_pipeline.py")
@@ -131,7 +134,7 @@ def run_quick_demo():
 
 def train_model_only():
     """Train the model without running inference demo."""
-    print("🔧 TRAINING MODEL ONLY")
+    print("TRAINING MODEL ONLY")
     print("=" * 40)
     
     config = create_custom_config()
@@ -139,19 +142,19 @@ def train_model_only():
     
     model_path = pipeline.run_complete_pipeline()
     
-    print(f"✅ Model training completed!")
-    print(f"📂 Model saved to: {model_path}")
+    print(f"Model training completed!")
+    print(f"Model saved to: {model_path}")
 
 
 def test_specific_text():
     """Test extraction on user-provided text."""
-    print("✏️ CUSTOM TEXT EXTRACTION")
+    print("CUSTOM TEXT EXTRACTION")
     print("=" * 40)
     
     # Check if model exists
     model_path = "models/document_ner_model"
     if not Path(model_path).exists():
-        print("❌ No trained model found. Please run training first.")
+        print("No trained model found. Please run training first.")
         return
     
     # Get text from user
@@ -160,7 +163,7 @@ def test_specific_text():
     text = input("Text: ").strip()
     
     if not text:
-        print("❌ No text provided.")
+        print("No text provided.")
         return
     
     # Load inference and process
@@ -168,7 +171,7 @@ def test_specific_text():
         inference = DocumentInference(model_path)
         result = inference.process_text_directly(text)
         
-        print(f"\n📊 Extraction Results:")
+        print(f"\nExtraction Results:")
         if 'error' not in result:
             structured_data = result.get('structured_data', {})
             if structured_data:
@@ -185,15 +188,15 @@ def test_specific_text():
                     confidence = int(entity['confidence'] * 100)
                     print(f"  {entity['entity']}: '{entity['text']}' ({confidence}%)")
         else:
-            print(f"❌ Error: {result['error']}")
+            print(f"Error: {result['error']}")
     
     except Exception as e:
-        print(f"❌ Failed to process text: {e}")
+        print(f"Failed to process text: {e}")
 
 
 def main():
     """Main demo function with options."""
-    print("🎯 DOCUMENT TEXT EXTRACTION SYSTEM")
+    print("DOCUMENT TEXT EXTRACTION SYSTEM")
     print("=" * 50)
     print("Choose an option:")
     print("1. Run complete demo (train + inference)")
@@ -217,7 +220,7 @@ def main():
             print("👋 Goodbye!")
             break
         else:
-            print("❌ Invalid choice. Please enter 1, 2, 3, or 4.")
+            print("Invalid choice. Please enter 1, 2, 3, or 4.")
 
 
 if __name__ == "__main__":
