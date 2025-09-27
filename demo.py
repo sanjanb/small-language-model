@@ -88,16 +88,16 @@ def run_quick_demo():
             structured_data = result.get('structured_data', {})
             entities = result.get('entities', [])
             
-            print(f"\n✅ Extraction Results:")
+            print(f"\nExtraction Results:")
             if structured_data:
-                print("📊 Structured Data:")
+                print("Structured Data:")
                 for key, value in structured_data.items():
                     print(f"   {key}: {value}")
             else:
                 print("   No structured data extracted")
             
             if entities:
-                print(f"🏷️  Found {len(entities)} entities:")
+                print(f"Found {len(entities)} entities:")
                 for entity in entities:
                     confidence = int(entity['confidence'] * 100)
                     print(f"   {entity['entity']}: '{entity['text']}' ({confidence}%)")

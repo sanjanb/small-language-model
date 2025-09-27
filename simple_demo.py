@@ -218,7 +218,7 @@ def run_demo():
         })
         
         # Display results
-        print(f"\n✅ Extraction Results:")
+        print(f"\nExtraction Results:")
         print(f"   Found {result['total_entities_found']} entities")
         print(f"   Entity types: {', '.join(result['entity_types_found'])}")
         
