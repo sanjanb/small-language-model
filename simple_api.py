@@ -536,13 +536,13 @@ def main():
         return
     
     print("Starting Simple Document Text Extraction API...")
-    print("Access the web interface at: http://localhost:8001")
-    print("API documentation at: http://localhost:8001/docs")
-    print("Health check at: http://localhost:8001/health")
+    print("Access the web interface at: http://localhost:7000")
+    print("API documentation at: http://localhost:7000/docs")
+    print("Health check at: http://localhost:7000/health")
     print("\nServer starting...")
     
     app = create_app()
-    uvicorn.run(app, host="0.0.0.0", port=8001, log_level="info")
+    uvicorn.run(app, host="0.0.0.0", port=7000, log_level="info")
 
 if __name__ == "__main__":
     main()
